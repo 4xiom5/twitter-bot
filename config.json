@@ -1,0 +1,12 @@
+{
+    "twitter_api": {
+        "consumer_key": "",
+        "consumer_secret": "",
+        "access_token_key": "",
+        "access_token_secret": ""
+    },
+    "bot_account" : "",
+    "retweet_keywords" : [],
+    "response_keywords" : [],
+    "message" : ""
+}

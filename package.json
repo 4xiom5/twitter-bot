@@ -1,0 +1,28 @@
+{
+  "name": "twitter-bot",
+  "version": "1.0.0",
+  "description": "A simple way to create a bot for Twitter",
+  "main": "app/main.js",
+  "dependencies": {
+    "twitter": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "init": "npm install -g typescript || sudo npm install -g typescript",
+    "start": "tsc && node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BNedry/twitter-bot.git"
+  },
+  "keywords": [
+    "Bot",
+    "Twitter"
+  ],
+  "author": "Brice Theurillat <brice.theurillat@outlook.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BNedry/twitter-bot/issues"
+  },
+  "homepage": "https://github.com/BNedry/twitter-bot#README"
+}
