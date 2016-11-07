@@ -23,3 +23,6 @@ Config file explanation :
 
 ## Start The bot
 `npm run start`
+
+## Licence
+Provided under ISC Licence.
