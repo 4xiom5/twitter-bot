@@ -2,7 +2,7 @@
 A simple way to create a bot for Twitter that can retweet and/or respond to tweets containing keywords.
 
 # How to use
-## Build
+## Init
 `npm run init`
 ## Configuration
 To start the bot simply run the `npm run start` command.
