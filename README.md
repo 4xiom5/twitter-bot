@@ -1,9 +1,15 @@
 # twitter-bot
-A simple way to create a bot for Twitter using NodeJS
+A simple way to create a bot for Twitter that can retweet and/or respond to tweets containing keywords.
 
 # How to use
+## Build
+`npm run init`
 ## Configuration
-First personalize the config file `config.json` in the folder `app`
+To start the bot simply run the `npm run start` command.
+
+Once this done, you can edit the config file `config.json` in the root folder.
+
+Config file explanation : 
 
 **twitter_api** : Your Twitter tokens
 
@@ -14,8 +20,6 @@ First personalize the config file `config.json` in the folder `app`
 **response_keywords** : A list of keywords, the bot will respond to any tweet containing one of this keywords. Leave empty if you don't want the bot to respond to anything.
 
 **message** : The bot will respond with this message to any tweet containing one of the *response_keywords* keywords.
-## Build
-`npm run init`
 
-## Start
+## Start The bot
 `npm run start`
