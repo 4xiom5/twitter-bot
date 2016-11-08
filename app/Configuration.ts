@@ -35,7 +35,7 @@ export class Configuration {
         if (fs.existsSync(Configuration.configPath)) {
             Configuration.config = Configuration.readConfig();
             Configuration.configKeys = Object.keys(Configuration.config);
-            Configuration.verifyConfig(Configuration.config);
+            //Configuration.verifyConfig(Configuration.config);
         } else {
             Configuration.writeConfig();
         }
