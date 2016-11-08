@@ -15,12 +15,24 @@ Configuration.get("response_keywords").forEach((value, index) => {
     responseTrack += value;
 });
 
+let apiError = false;
+
 if (responseTrack !== "") {
     const responseStream = client.stream("statuses/filter", { track: responseTrack });
     responseStream.on("data", function (data) {
-        client.post("statuses/update", { status: `@${data.user.screen_name} ${message}`, in_reply_to_status_id: data.id }, function (error, tweet, response) {
-            error && console.error(error);
-        });
+        if (!apiError) {
+            client.post("statuses/update", { status: `@${data.user.screen_name} ${message}`, in_reply_to_status_id: data.id }, function (error, tweet, response) {
+                if (!error) {
+                    console.error(error);
+                    console.log("Waiting 10min before responding...");
+                    apiError = true;
+                    setTimeout(() => {
+                        apiError = false;
+                        console.log("Start responding again...");
+                    }, 1000 * 60 * 10);
+                }
+            });
+        }
     });
     responseStream.on("error", console.error);
 }
@@ -37,9 +49,17 @@ Configuration.get("retweet_keywords").forEach((value, index) => {
 if (retweetTrack !== "") {
     const retweetStream = client.stream("statuses/filter", { track: retweetTrack });
     retweetStream.on("data", function (data) {
-        if (data.user.screen_name !== botAccount) {
+        if (data.user.screen_name !== botAccount && !apiError) {
             client.post("statuses/retweet", { id: data.id_str }, function (error, tweet, response) {
-                error && console.error(error);
+                if (error) {
+                    console.error(error);
+                    console.log("Waiting 10min before retweeting...");
+                    apiError = true;
+                    setTimeout(() => {
+                        apiError = false;
+                        console.log("Start retweeting again...");
+                    }, 1000 * 60 * 10);
+                }
             });
         }
     });
